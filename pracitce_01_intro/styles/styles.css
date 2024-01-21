@@ -3,3 +3,43 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.headerStyle {
+    text-align: center;
+    font-size: 20px;
+    color: red;
+    padding: 10px 0; /* padding-top = padding-bottom = 10px, padding-right = padding-left = 0 */
+}
+
+.buttonStyle {
+    background-color: #0096CD;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.buttonStyle:hover {
+    background-color: lightseagreen;
+}
+
+.centeredContainer {
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin: 30px auto;
+    position: relative;
+}
+
+.circle {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: red;
+    top: -15px;
+    right: -15px;
+}
