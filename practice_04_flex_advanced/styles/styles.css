@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.boxesContainer {
+    border: 1px solid gray;
+    display: flex;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.box1 {
+    background-color: red;
+}
+
+.box2 {
+    background-color: yellow;
+}
+
+.box3 {
+    background-color: lightgreen;
+}
+
+.registerForm {
+    width: 455px;
+    height: 455px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    align-items: center;
+    gap: 10px;
+}
