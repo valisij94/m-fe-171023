@@ -19,6 +19,44 @@
             <div class="box box2">2</div>
             <div class="box box3">3</div>
         </div>
+
+        <form class="registerForm">
+            <h2>Register Form</h2>
+            <p>Create an account to enjoy all the services without any ads for free!</p>
+            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Password">
+            <div class="formRow">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Lastname">
+            </div>
+            <p>Enter your phone:</p>
+            <div class="formRow phoneRow">
+                <input type="text" placeholder="+43">
+                <input type="text" placeholder="123456789">
+            </div>
+            <p>Please select account type</p>
+            <div class="formRow accountTypeRow">
+                <div>
+                <input id="basicAccount" type="radio" name="accountType" />
+                <label for="basicAccount">Basic</label>
+                </div>
+
+                <div>
+                <input id="premAccount" type="radio" name="accountType" />
+                <label for="premAccount">Premium</label>
+                </div>
+
+                <div>
+                <input id="luxAccount" type="radio" name="accountType" />
+                <label for="luxAccount">Luxury</label>
+                </div>
+            </div>
+            <button>Create Account</button>
+            <div class="formRow signInRow">
+                <p>Already have an account?</p>
+                <a href="#">Sign in!</a>
+            </div>
+        </form>
     </main>
 </body>
 </html>
