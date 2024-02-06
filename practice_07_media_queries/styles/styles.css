@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.infoLine {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #FFF;
+}
+
+.intro {
+    background-color: #605957;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainNav {
+    display: flex;
+}
+
+.navList {
+    flex-basis: 50%;
+    list-style: none;
+    display: flex;
+    gap: 18px;
+    padding: 20px 30px;
+}
+
+.primaryList {
+    justify-content: center;
+}
+
+.secondaryList {
+    justify-content: flex-end;
+}
+
+.navList a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #1A1818;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+}
+
+
+.mainContent {
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+}
+
+.mainContent img {
+    width: 100%;
+}
+
+.mainContentCard {
+    width: 100%;
+}
+
+.mainContentLeft {
+    flex-basis: calc(50% - 15px);
+}
+
+.mainContentRight {
+    flex-basis: calc(50% - 15px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.introContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-grow: 1;
+}
+
+.introContentText {
+    font-size: 54px;
+    font-weight: 400;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.introContentButton {
+    cursor: pointer;
+    padding: 13px 21px;
+    background-color: #A05B4E;
+    color: #FFF;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
