@@ -107,6 +107,11 @@ img {
     text-transform: uppercase;
 }
 
+.mainContentPrice {
+    display: flex;
+    justify-content: space-between;
+}
+
 .advantagesBlock {
 
 }
