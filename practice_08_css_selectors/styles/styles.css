@@ -51,6 +51,8 @@ img {
     font-size: 12px;
     font-weight: 400;
     line-height: 14px;
+
+    transition: all 0.5s;
 }
 
 
@@ -66,6 +68,12 @@ img {
 
 .mainContentCard {
     width: 100%;
+
+    transition: all .5s;
+}
+
+.mainContentCard:hover .mainContentPrice .mainContentCardText:last-child {
+    color: #0f4c0c;
 }
 
 .mainContentLeft {
@@ -77,6 +85,23 @@ img {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+}
+
+/* .mainContentRight > *:nth-child(even) {
+    background-color: red;
+} */
+
+.mainContentRight .mainContentCard:nth-child(even):hover {
+    background-color: #a39895;
+}
+
+.mainContentRight .mainContentCard:nth-child(odd):hover {
+    background-color: #A05B4E;
+}
+
+.mainContentPrice .mainContentCardText:last-child {
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .introContent {
@@ -116,6 +141,12 @@ img {
 
 }
 
+.mainNav .navList a:hover {
+    background-color: #a39895;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 @media (max-width: 700px) {
     .mainNav {
         flex-direction: column;
@@ -139,4 +170,15 @@ img {
     .mainNav {
         display: none;
     }
+}
+
+/* .mainContentCard:hover ~ .mainContentCard {
+    opacity: 0.5;
+} */
+
+.mainContentRight:hover > .mainContentCard{
+    opacity: 0.5;
+}
+.mainContentRight:hover > .mainContentCard:hover{
+    opacity: 1;
 }
