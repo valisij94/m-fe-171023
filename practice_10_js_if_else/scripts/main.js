@@ -1,65 +1,94 @@
-// код писать здесь!
 
-//console.log('Hello World!');
-
-// function customizedLog(text) {
-//   console.log(text);
+/*
+ - написать блок кода, который спрашивает у пользователя его возраст (используем метод `prompt`). В зависимости от введенного возраста, если возраст больше либо равен 21, выводим в консоль сообщение "Доступ разрешен". Иначе - выводим сообщение "Есть ограничения".
+ */
+// const a = prompt('Please enter your age');
+// if ( +a >= 21 ) {
+//   console.log('Access granted');
+// }
+// else {
+//   console.log('Access denied')
 // }
 
-// customizedLog('Timon!'); // window.customizedLog('Timon')
-
-// 3rd task
-
-// function customizedLog(text) {
-//   console.log('Logged by Dev: ' + text);
-//   //console.log(`Logged by Dev: ${text}`)
+/*
+ - пишем блок проверки делимости числа на 2. Нужно запросить у пользователя число (метод `prompt`). Если число делится на 2 без остатка - выводим в консоль сообщение "Кратно двум", а если не делится - то выводим сообщение "Не кратно двум".  Проверить, делится ли число А на число В без остатка можно с использованием оператора `%`-  остаток от деления.
+ */
+// const a = prompt('Please enter a number');
+// if ( +a % 2 === 0 ) {
+//   console.log('Divisible');
+// }
+// else {
+//   console.log('Not-divisible')
 // }
 
-// let functionResult = customizedLog('Simba!');
-// console.log(functionResult)
+/*
+ - усложняем предыдущую задачу. Теперь проверяем на кратность 2 и 3. То есть, запрашиваем число вызовом `prompt`. Если число делится на 2 - выводим "Кратно двум". Если делится на 3 - выводим "Кратно трем". Если делится и на 2 и на 3 - выводим "Кратно 2 и 3". Если не делится ни на что - выводим "Не кратно 2 и 3".
+ */
+// const a = +prompt('Please enter a number');
+// if ( a % 2 === 0 && a % 3 === 0 ) {
+//   console.log('Divisible by 2 and 3');
+// }
+// else if ( a % 2 === 0 ) {
+//   console.log('Divisible by 2');
+// }
+// else if ( a % 3 === 0 ) {
+//   console.log('Divisible by 3');
+// }
+// else {
+//   console.log('Non-divisible');
+// }
 
-// 4th task
-function add(num1, num2) {
-  return num1 + num2;
-}
 
-// 5th task
-function subtract(num1, num2) {
-  return num1 - num2;
-}
+// if (a % 2 === 0) {
+//   if (a % 3 === 0) { console.log('Divisible by 2 and 3'); }
+//   else { console.log('Divisible by 2'); }
+// }
+// else {
+//   if (a % 3 === 0) { console.log('Divisible by 3'); }
+//   else { console.log('Non-divisible'); }
+// }
 
-function multiply(num1, num2) {
-  return num1 * num2;
-}
+/*
+ - немного усложняем задачу про возраст. Теперь нам нужно спросить у пользователя его возраст (методом `prompt`), и рассматривать 3 случая:
+     - возраст меньше 21 - выводим сообщение "Доступ запрещен".
+     - возраст от 21 до 45 - выводим сообщение "Доступ открыт".
+     - возраст больше 45 - выводим сообщение "Доступ ограничен".
+ Для реализации, нам нужны логические операторы и вложенные условия.
+ */
+// const a = +prompt('Please enter your age');
+// if ( a < 21 ) {
+//   console.log('Access denied');
+// }
+// else if ( a >= 21 && a <= 45 ) {
+//   console.log('Access granted');
+// }
+// else {
+//   console.log('Access limited');
+// }
 
-function divide(num1, num2) {
-  return num1 / num2;
-}
+/*
+ - продолжаем работу с логическими операторами. Теперь нам нужно проверить, что возраст пользователя лежит ВНЕ диапазона 21-45. То есть, мы запрашиваем возраст методом `prompt`, и если возраст меньше 21 ИЛИ больше 45 - выводим в консоль сообщение "Доступ открыт". Если возраст в диапазоне - ничего не делаем.
+ */
 
-function handleAddBtnClick() {
-  // 1. Find inputs via document.querySelector
-  let input1 = document.querySelector('#numberFirst');
-  let input2 = document.querySelector('#numberSecond');
-  // 2. Get values from inputs
-  let value1 = input1.value;
-  let value2 = input2.value;
-  // 3. Convert values into numbers
-  // 4. Get the sum
-  let result = +value1 + +value2;
-  // 5. Print the result into console
-  console.log(result);
-}
+// const age = +prompt('Your age')
+// if (age < 21 || age > 45) {
+//   console.log('Доступ открыт');
+// }
 
-function handleSubtractBtnClick() {
-  // 1. Find inputs via document.querySelector
-  let input1 = document.querySelector('#numberFirst');
-  let input2 = document.querySelector('#numberSecond');
-  // 2. Get values from inputs
-  let value1 = input1.value;
-  let value2 = input2.value;
-  // 3. Convert values into numbers
-  // 4. Get the sum
-  let result = +value1 - +value2;
-  // 5. Print the result into console
-  console.log(result);
-}
+// if (!(age >= 21 && age <= 45)) {
+//   console.log('Доступ открыт');
+// }
+
+/*
+ - пишем блок кода, который поприветствует пользователя на его родном языке. Запрашиваем у пользователя через метод `prompt` страну происхождения ("Откуда Вы родом?"). Если страна - Россия, то выводим в консоль "Добрый день!", если Украина - выводим "Доброго дня!", Беларусь - "Добры дзень!", Германия - "Guten Tag!".
+ */
+
+ let country = prompt('Please enter your county').toUpperCase();
+
+ switch (country) {
+  case 'РОССИЯ': console.log('Добрый день!'); break;
+  case 'УКРАИНА': console.log('Доброго дня!'); break;
+  case 'БЕЛАРУСЬ': console.log('Добры дзень!'); break;
+  case 'ГЕРМАНИЯ': console.log('Guten Tag!'); break;
+  default: console.log('Something weird..');
+ }
