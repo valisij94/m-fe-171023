@@ -1,167 +1,123 @@
-const simpleObject = {
-  name: 'First Name',
-  age: 25,
-  job: 'Worker'
-};
 
-/*1. Пристрелочная задача. У нас есть объект `simpleObject`. Нужно создать его ГЛУБОКУЮ копию такими способами:
- - с использованием `spread`-оператора
- - с использованием `Object.assign`
- - с использованием сериализации и десериализации (JSON)
-*/
-
-// const newSimpleObject = { ...simpleObject };
-// console.log('Spread:', newSimpleObject);
-
-// const newSimpleObject2 = Object.assign({}, simpleObject);
-// console.log('Assign: ', newSimpleObject2);
-
-// const newSimpleObject3 = JSON.parse(JSON.stringify(simpleObject));
-// console.log('Serialize', newSimpleObject3);
-
-const complexObject = {
-  name: 'First Name',
-  age: 25,
-  job: 'Worker',
-  skills: {
-      programming: 9,
-      testing: 3
-  }
-};
+// setTimeout( () => {
+//   console.log('Delayed message');
+// }, 5000);
 
 /*
-2. Усложняем задачу. Теперь нужно сделать глубокую копию объекта `complexObject`. Также, тремя способами.
-*/
-const newComplexObject1 = { ...complexObject, skills: { ...complexObject.skills} };
-
-// const newComplexObject2 = Object.assign({}, complexObject);
-// newComplexObject2.skills = Object.assign({}, complexObject.skills)
-const newComplexObject2 = Object.assign({}, complexObject, { skills: {...complexObject.skills} });
-
-const newComplexObject3 = JSON.parse(JSON.stringify(complexObject));
-
-/*
-3. Теперь поработаем с методами объектов. У нас есть объект `DEVELOPER_SKILLS`, который содержит данные о навыках программиста. Нужно создать массив, в котором будут содержаться только названия навыков (то есть, ключи объекта `DEVELOPER_SKILLS`), отсортировать его в алфавитном порядке, и вывести в консоль.
+2. Делаем блок на странице, который будет запускать отложенное выполнение. Нужно сделать инпут, в который будем вводить задержку в секундах, и кнопку "Запуск". При нажатии на кнопку "Запуск", нужно через N секунд вывести сообщение "Delayed message". N - это кол-во секунд, введенное в инпуте.
 */
 
-const DEVELOPER_SKILLS = {
-  javascript: {
-    skill: 9,
-    experience: 5,
-    comment: 'Plain old JS'
-  },
-  css: {
-    skill: 8,
-    experience: 3,
-    comment: 'With preprocessors'
-  },
-  react: {
-    skill: 10,
-    experience: 4,
-    comment: 'Functional React'
-  }
-}
+// const timerInputEl = document.querySelector('#timerInput');
+// const timerBtnEl = document.querySelector('#timerStartBtn');
 
-// let skillsList = Object.keys(DEVELOPER_SKILLS).sort();
-// console.log(skillsList);
-
-// 4. Теперь создаем массив объектов с данными навыках программиста (значения свойств объекта `DEVELOPER_SKILLS`), сортируем его по возрастанию навыка (`skil`), и выводим в консоль.
-// let skillsSorted = Object.values(DEVELOPER_SKILLS).sort( (a, b) => {
-//   return a.skill - b.skill;
+// timerBtnEl.addEventListener('click', () => {
+//   setTimeout( () => {
+//     console.log('Delayed message');
+//   }, timerInputEl.value * 1000);
 // });
-// console.log(skillsSorted);
 
 /*
-5. Нужно получить массив всех комментариев к навыкам. То есть, пройтись по свойствам объекта `DEVELOPER_SKILLS`, взять из каждого комментарий, и сложить в массив. Результат вывести в консоль.
-*/
-// const newArray = Object.values(DEVELOPER_SKILLS).map( el => el.comment )
-// console.log(newArray);
-
-/*
-6. Собираем данные по скиллам и комментариям. Нужно получить объект, где в качестве ключей будут использоваться названия навыков, а в качестве значений  - комментарии.
-```
-{
-  javascript: 'Plain old JS',
-  css: 'With preprocessors',
-  react: 'Functional React'
-}
-```
+3. Дорабатываем наш блок. Добавляем кнопку "Отмена". Изначально она должна быть скрыта (рекомендуется воспользоваться CSS).
+ - когда мы нажимаем на кнопку "Запуск", мы показываем кнопку "Отмена".
+ - при нажатии на кнопку "Отмена", нам нужно отменить запланированное в `setTimeout` выполнение.
+ - если выполнение все же произошло (т.е. функциональность внутри `setTimeout` выполнилась), то кнопку "Отмена" скрываем.
 */
 
-// let result1 = {};
-// for (let key in DEVELOPER_SKILLS) {
-//   result1[key] = DEVELOPER_SKILLS[key].comment;
-// }
-// console.log(result1)
+// const timerInputEl = document.querySelector('#timerInput');
+// const timerBtnEl = document.querySelector('#timerStartBtn');
+// const timerCancelBtnEl = document.querySelector('#timerCancelBtn');
+// let timerId = null;
 
-// const result = Object.entries(DEVELOPER_SKILLS).reduce( (acc, [key, value]) => {
-//   acc[key] = value.comment;
-//   return acc;
-// }, {});
-// console.log(result);
+// timerBtnEl.addEventListener('click', () => {
+//   timerCancelBtnEl.style.visibility = 'visible';
+//   timerId = setTimeout( () => {
+//     console.log('Delayed message');
+//     timerCancelBtnEl.style.visibility = 'hidden';
+//   }, timerInputEl.value * 1000);
+// });
 
-
-const programmerObject = {
-  name: 'Programmer',
-  age: 35,
-  skills: {
-    javascript: {
-      skill: 9,
-      type: 'hardSkill'
-    },
-    react: {
-      skill: 10,
-      type: 'hardSkill'
-    },
-    communication: {
-      skill: 7,
-      type: 'softSkill'
-    },
-    attention: {
-      skill: 8,
-      type: 'softSkill'
-    }
-  }
-}
-
-/*
-7. Сделаем тренажер программистов. Пишем функцию `programmerHardSkillTrainer`. Она примет на вход объект-программиста. У него есть ОБЪЕКТ `skills`, где содержатся данные о его навыках, и уровень владения навыком. Нужно пройтись по значениям этого объекта, и для каждого навыка с `type = hardSkill` увеличить `skill` на 1. То есть, учим программиста программировать. При этом, нужно выводить в консоль протокол: вида "javascript skll had been increased!".
-*/
-
-// function programmerHardSkillTrainer(programmer) {
-//   for (let value of Object.values(programmer.skills)) {
-//     if (value.type === 'hardSkill') {
-//       value.skill += 1;
-//     }
+// timerCancelBtnEl.addEventListener('click', () => {
+//   if (timerId) {
+//     clearTimeout(timerId);
 //   }
-// }
-
-// programmerHardSkillTrainer(programmerObject);
-// console.log(programmerObject);
+//   timerCancelBtnEl.style.visibility = 'hidden';
+// });
 
 /*
-8. Теперь пишем функцию `getSoftSkills` - она должна определить софт-скиллы у программиста. Принимает на вход объект-программиста, и должна вернуть массив, который содержит названия навыков, у которых категория - `softSkill`.
+4. Работаем с другой асинхронной операцией. Наша задача - каждые 5 секунд выводить в консоль сообщение "Прошло 5 секунд".
 */
-function getSoftSkills(programmer) {
-  const result = [];
-  for (let [key, value] of Object.entries(programmer.skills)) {
-    if (value.type === 'softSkill') {
-      result.push(key);
-    }
+
+// setInterval( () => {
+//   console.log('5 seconds passed!')
+// }, 5000);
+
+/*
+5. Добавляем на страницу текущие дату и время. Нужно добавить в разметку блок, в котором должны отображаться текущие дата и время, вида `01.01.2000 11:23:55`. И нужно сделать так, чтобы дата и время отображались актуальные (т.е. обновлять текст ежесекундно).
+*/
+
+// const timerEl = document.querySelector('#currentDateTimeText');
+// timerEl.innerText = new Date().toLocaleString();
+
+// setInterval( () => {
+//   timerEl.innerText = new Date().toLocaleString();
+// }, 1000);
+
+/*
+6. Реализуем простой секундомер. Нужно добавить в блок с id=`simpleTimerContainer` секундомер. В блоке будут:
+ - параграф, в котором будем выводить текущее время секундомера
+ - кнопка "Старт" - при нажатии запускаем секундомер
+ - кнопка "Сброс" - при нажатии сбрасываем секундомер.
+*/
+
+// const startCounterBtnEl = document.querySelector('#counterStartBtn');
+// const stopCounterBtnEl = document.querySelector('#counterStopBtn');
+// const counterTextEl = document.querySelector('#counterValueText');
+// let intervalId; // undefined
+
+// startCounterBtnEl.addEventListener('click', () => {
+//   intervalId = setInterval( () => {
+//     counterTextEl.innerText = +counterTextEl.innerText + 1;
+//   }, 1000);
+// });
+
+// stopCounterBtnEl.addEventListener('click', () => {
+//   if (intervalId) {
+//     clearInterval(intervalId);
+//     counterTextEl.innerText = '0';
+//   }
+// });
+
+/*
+8. Работаем с промисами. Задача - написать промис, который через 5 секунд будет успешно завершен текстом "Successfully finished!". Этот текст нужно вывести в консоль.
+*/
+
+const myPromise = new Promise( (resolve, reject) => {
+  setTimeout( () => {
+    // говорим промису, что он должен быть успешно завершен,
+    // с результатом 'Successfully finished!'
+    //resolve('Successfully finished!');
+    reject('Something went wrong!');
+  }, 5000);
+});
+
+myPromise.then(
+  (result) => {
+    console.log(result);
+  },
+  (error) => {
+    console.log('Rejected!', error);
   }
-  return result;
+);
 
-  // return Object.entries(programmer.skills).filter( ([key, value]) => value.type === 'softSkill').map( el => el[0]);
+
+const findProductById = (id) => {
+    return new Promise((resolve, reject) => {
+        let findProduct = data.find(product => product.id === id);
+
+        if(findProduct){
+            resolve(findProduct);
+        }else {
+            reject(`Product ${id} not found!`)
+        }
+    })
 }
-
-console.log(getSoftSkills(programmerObject));
-
-function getProgrammerSkills(programmer) {
-  const result = {};
-  for (let skillData of Object.values(programmer.skills)) {
-    result[skillData.type] = result[skillData.type] ? result[skillData.type] + 1 : 1;
-  }
-  return result;
-}
-
-console.log(getProgrammerSkills(programmerObject))
