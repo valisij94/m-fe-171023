@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <main class="mainContainer">
+    <h1>Base SASS/SCSS syntax</h1>
+    <p>Here we have a simple Unordered List (ul)</p>
+    <ul class="unordered_list">
+      <li>First item</li>
+      <li>Second item</li>
+    </ul>
+    <div class="intro_block">
+      <h2>Intro block: to deal with nesting</h2>
+      <p>Here we have some HTML elements, and we are going to style them using SCSS. Let's start from here!</p>
+      <ul class="unordered_list">
+        <li>Firstly, we need to make SASS to watch our source file</li>
+        <li>We also need to specify the output file</li>
+        <li>And finally, we can use the SASS!</li>
+        <li>Variables - to make the support of our code simpler</li>
+        <li>Nesting - to keep it DRY</li>
+        <li>Mixins - could also save a lot of space</li>
+        <li>And more and more!</li>
+      </ul>
+      <div class="simple_container_block">
+        <h4>This is a simple container block.</h4>
+        <p>And it is nested into the "intro_block"</p>
+      </div>
+      <div class="simple_container_block attention_block">
+        <h4>Another simple container block.</h4>
+        <p>It is also nested into the "intro_block", but it also has the "attention_block" class.</p>
+      </div>
+    </div>
+    <div class="simple_container_block">
+      <h4>This is also a simple container block.</h4>
+      <p>But this block is placed outside of "intro_block"</p>
+    </div>
+    <div class="flex_container">
+      <p>First flex element</p>
+      <p>Second flex element</p>
+      <p>Third flex element</p>
+      <p>Fourth flex element</p>
+    </div>
+    <div class="grid_container">
+      <p>First grid element</p>
+      <p>Second grid element</p>
+      <p>Third grid element</p>
+      <p>Fourth grid element</p>
+    </div>
+  </main>
+  <script src="./scripts/main.js"></script>
+
+
+</body>
+</html>
