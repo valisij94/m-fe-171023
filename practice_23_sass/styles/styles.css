@@ -1,16 +1,18 @@
+@charset "UTF-8";
+ul.unordered_list {
+  background-color: greenyellow;
+}
 
-@import 'configs';
-@import 'imported';
-
-@import 'something/grids.scss';
-@import 'mixins';
+.grid_container {
+  border: 2px solid red;
+}
 
 body {
-  font-family: $base-font;
+  font-family: Helvetica, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $primary-color;
+  color: greenyellow;
   text-align: center;
 }
 
@@ -19,35 +21,37 @@ ul {
   border-radius: 10px;
 }
 
-.intro_block {
-  ul {
-    background-color: lightgreen;
-  }
-  .simple_container_block {
-    background-color: lightseagreen;
-  }
+.intro_block ul {
+  background-color: lightgreen;
+}
+.intro_block .simple_container_block {
+  background-color: lightseagreen;
 }
 
 .simple_container_block {
   background-color: lightsalmon;
-
-  &.attention_block {
-    background-color: red;
-  }
+}
+.simple_container_block.attention_block {
+  background-color: red;
 }
 
 .flex_container {
   background-color: yellow;
   border-radius: 10px;
-  @include flexible;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .grid_container {
   background-color: aquamarine;
   border-radius: 10px;
-  @include grid_mixin(4);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 /*
 7. Усложним задачу, и сделаем параметризованный миксин. Мы хотим сделать миксин `grid_mixin`, который будет примешивать стили сетки к чему-то. В параметрах, он должен принять количество ячеек сетки (cols), и добавить стили сетки (`display: grid, grid-template-columns: repeat(cols, 1fr)` ).
 */
+
+/*# sourceMappingURL=styles.css.map */

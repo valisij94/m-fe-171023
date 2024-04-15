@@ -139,3 +139,53 @@ function addPost(title, body, userId) {
 }
 
 addPost('Title', 'Body', 1)
+
+
+/*
+6. Пишем функцию удаления поста. Она должна принимать в аргументах ИД поста, и обращаться к адресу `https://jsonplaceholder.typicode.com/posts/POST_ID`, методом `DELETE`. В адресе нужно вместо POST_ID подставить ИД поста из аргумента.
+ */
+function deletePost(postId) {
+    fetch(
+        `https://jsonplaceholder.typicode.com/posts/${postId}`,
+        {
+            method: 'DELETE'
+        }
+    )
+        .then(response => {
+            console.log(response)
+            if (response.ok) {
+                return response.json();
+            }
+            else {
+                throw new Error(response.statusText);
+            }
+        })
+        .then( data => console.log(data))
+        .catch( error => console.log(error));
+}
+
+deletePost(1);
+
+
+/*
+7. Пишем свою функцию `sendJsonRequest` для отправки сетевого запроса (GET). Она должна принять в аргументе URL, к которому хотим обратиться, и вернуть ПРОМИС, который:
+ - в случае успеха, будет зарезолвлен преобразованными в JSON данными с бэка
+ - в случае неуспеха, будет вызван `reject`, с текстом ошибки.
+ */
+function sendJsonRequest(url) {
+    // const result = await fetch(url);
+    // const parsedResult = await result.json();
+    // return parsedResult;
+    return new Promise( (resolve, reject) => {
+        fetch(url)
+            .then( response => response.json() )
+            .then( data => resolve(data) )
+            .catch( error => {
+                reject(error)
+            });
+    })
+}
+
+sendJsonRequest('https://jsonplaceholder.typicode.com/posts')
+    .then( res => console.log(res))
+    .catch( err => console.log('Something went wrong', err));
