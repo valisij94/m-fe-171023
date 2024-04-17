@@ -11,7 +11,7 @@
 ### Разогрев
 0. Что выведет блок кода:
 ```
-let timon = {
+let suricate = {
   kind: 'Suricate',
   age: 5,
   color: 'Orange',
