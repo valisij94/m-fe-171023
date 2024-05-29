@@ -30,6 +30,7 @@ export default function ProductList() {
       {
         isFetching ? <p>Please, wait...</p> :
         products && products
+          // categoryFromState === ''
           .filter( product => product.category === categoryFromState || !categoryFromState )
           .map( prod => <ProductCard key={prod.id} product={prod}/> )
       }
