@@ -2,10 +2,15 @@
 4. Добавим валидацию в форму. Нужно, чтобы при нажатии на кнопку "Сохранить", запускалась бы валидация. Необходимо контролировать, что поле "Название" непустое. Если поле пустое - нужно под ним показывать параграф с текстом "Заполните это поле!".
 */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { requestCategoriesAction } from "../../store/actions/categoriesActions";
 
 export default function ProductForm() {
+
+  const dispatch = useDispatch();
+  const { categories, error, isFetching } = useSelector( state => state.categories );
 
   const [formState, setFormState] = useState({
     name: {
@@ -46,6 +51,10 @@ export default function ProductForm() {
     }) );
   }
 
+  useEffect( () => {
+    dispatch( requestCategoriesAction() );
+  }, [] );
+
   return (
     <div className="productFormContainer">
       <input
@@ -72,10 +81,16 @@ export default function ProductForm() {
         onChange={inputChangeHandler}
       />
       { formState.description.error && <p>Fill this field!</p>}
-      <select>
-        <option value="electronics">Electronics</option>
-        <option value="toys">Toys</option>
-      </select>
+
+      { isFetching ? <p>Loading categories...</p> :
+        <select>
+          {
+            categories && categories.map( (category) => {
+              return <option key={category.slug} value={category.slug}>{category.name}</option>
+            } )
+          }
+        </select>
+      }
       <button onClick={saveBtnClickHandler}>Save</button>
     </div>
   );
