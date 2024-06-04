@@ -55,3 +55,19 @@ img {
     transform: rotate(360deg);
   }
 }
+
+.App.light {
+  background-color: lightcyan;
+}
+
+.App.dark {
+  background-color: #61dafb;
+}
+
+.productListContainer.light {
+  background-color: blanchedalmond;
+}
+
+.productListContainer.dark  {
+  background-color: cadetblue;
+}
