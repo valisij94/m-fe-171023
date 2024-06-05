@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard.jsx";
 import { useDispatch, useSelector } from "react-redux";
 
 import {startProductsRequestAction, finishProductsRequestAction, errorProductsRequestAction} from '../../store/actions/productsActions.js';
+import { ThemeContext } from "../../context/ThemeContext.js";
 
 export default function ProductList() {
 
@@ -10,6 +11,8 @@ export default function ProductList() {
 
   const { products, isFetching } = useSelector( state => state.products );
   const categoryFromState = useSelector( state => state.filter.category );
+
+  const themeContext = useContext(ThemeContext);
 
   useEffect( () => {
     if (products.length === 0 && !isFetching) {
@@ -26,7 +29,7 @@ export default function ProductList() {
   }, []);
 
   return (
-    <div className="productListContainer">
+    <div className={`productListContainer ${themeContext.theme}`}>
       {
         isFetching ? <p>Please, wait...</p> :
         products && products
