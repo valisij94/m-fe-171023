@@ -24,7 +24,3 @@
  - [useCallback](https://react.dev/reference/react/useCallback#) - официальная документация
  - [Оптимизация через useCallback](https://habr.com/ru/articles/590577/) - русскоязычная, очень толковая информация - рекомендуется к прочтению!
  - [useMemo](https://react.dev/reference/react/useMemo) - официальная документация
-
-### Полезные ссылки по занятию:
- - [React useContext](https://react.dev/reference/react/useContext) - англоязычная документация по хуку `useContext`
- - [Еще useContext](https://reactdev.ru/reference/useContext/#_12) - русскоязычная статья, вольный перевод официальной доки, с примерами использования. Рекомендуется к прочтению.
